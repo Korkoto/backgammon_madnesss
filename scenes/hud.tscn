@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://xq76gdvqx7ah"]
+
+[ext_resource type="Script" uid="uid://5jwooxlkl8o7" path="res://hud.gd" id="1_ahhtf"]
+[ext_resource type="PackedScene" uid="uid://j47sw1gb8dwg" path="res://scenes/dice.tscn" id="2_oo0fn"]
+
+[node name="Hud" type="Control" unique_id=1180394394]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahhtf")
+
+[node name="Label" type="Label" parent="." unique_id=1704360693]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 236.0
+offset_right = 443.0
+offset_bottom = 259.0
+
+[node name="Button" type="Button" parent="Label" unique_id=565102466]
+modulate = Color(0.19141999, 0.20924604, 0.9999998, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.769
+anchor_bottom = 1.2670001
+offset_right = -0.052001953
+offset_bottom = -0.010002136
+theme_override_font_sizes/font_size = 12
+text = "Throw the dice"
+
+[node name="Dice" parent="." unique_id=453991902 instance=ExtResource("2_oo0fn")]
+
+[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]

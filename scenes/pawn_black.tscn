@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cavmjviowoao1"]
+
+[ext_resource type="Script" uid="uid://bai88ndhxi2hg" path="res://scripts/pawn_black.gd" id="1_242kq"]
+[ext_resource type="Texture2D" uid="uid://ccwor72w80sph" path="res://assets/pawn_plain.png" id="1_p77bh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_242kq"]
+atlas = ExtResource("1_p77bh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4d4n"]
+atlas = ExtResource("1_p77bh")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqilw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_242kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4d4n")
+}],
+"loop": true,
+"name": &"hover_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obdi7"]
+radius = 14.0
+
+[node name="PawnBlack" type="StaticBody2D" unique_id=1752818155]
+input_pickable = true
+script = ExtResource("1_242kq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172397402]
+sprite_frames = SubResource("SpriteFrames_oqilw")
+animation = &"hover_animation"
+
+[node name="Button" type="Button" parent="AnimatedSprite2D" unique_id=1433321996]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.13700001
+anchor_right = 0.75000006
+anchor_bottom = 0.87500006
+offset_left = -16.0
+offset_top = -16.384
+offset_right = -16.000002
+offset_bottom = -16.000002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=994795600]
+shape = SubResource("CircleShape2D_obdi7")
+
+[connection signal="button_down" from="AnimatedSprite2D/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="AnimatedSprite2D/Button" to="." method="_on_button_button_up"]

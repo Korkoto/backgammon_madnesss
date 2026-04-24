@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://j47sw1gb8dwg"]
+
+[ext_resource type="Texture2D" uid="uid://cbfgsi5jcuonw" path="res://assets/dice_plain1.png" id="1_mg5ex"]
+[ext_resource type="Script" uid="uid://d36qa2iup06cu" path="res://scripts/dice.gd" id="1_oi81l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg5ex"]
+atlas = ExtResource("1_mg5ex")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi81l"]
+atlas = ExtResource("1_mg5ex")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1ht6"]
+atlas = ExtResource("1_mg5ex")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk8ku"]
+atlas = ExtResource("1_mg5ex")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tannu"]
+atlas = ExtResource("1_mg5ex")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb8pk"]
+atlas = ExtResource("1_mg5ex")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ocjtb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg5ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi81l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1ht6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk8ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tannu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb8pk")
+}],
+"loop": true,
+"name": &"dice_sides",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dicg2"]
+size = Vector2(14, 14)
+
+[node name="Dice" type="RigidBody2D" unique_id=453991902]
+gravity_scale = 0.0
+script = ExtResource("1_oi81l")
+
+[node name="Dice1" type="AnimatedSprite2D" parent="." unique_id=1551589902]
+position = Vector2(-27, -28)
+sprite_frames = SubResource("SpriteFrames_ocjtb")
+animation = &"dice_sides"
+
+[node name="Dice2" type="AnimatedSprite2D" parent="." unique_id=420429975]
+position = Vector2(-27, -28)
+sprite_frames = SubResource("SpriteFrames_ocjtb")
+animation = &"dice_sides"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=512866982]
+position = Vector2(-27, -28)
+shape = SubResource("RectangleShape2D_dicg2")

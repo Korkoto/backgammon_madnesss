@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c301ufjr6kv8f"]
+
+[ext_resource type="Script" uid="uid://ce15xdyyubu75" path="res://scripts/pawn_white.gd" id="1_jvque"]
+[ext_resource type="Texture2D" uid="uid://ccwor72w80sph" path="res://assets/pawn_plain.png" id="2_y7e2d"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jvque"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvque"]
+radius = 14.035668
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvque"]
+atlas = ExtResource("2_y7e2d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7e2d"]
+atlas = ExtResource("2_y7e2d")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncs0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvque")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7e2d")
+}],
+"loop": true,
+"name": &"hover_animation",
+"speed": 5.0
+}]
+
+[node name="PawnWhite" type="StaticBody2D" unique_id=1723992478]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_jvque")
+script = ExtResource("1_jvque")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1478385319]
+z_index = 2
+shape = SubResource("CircleShape2D_jvque")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1737531988]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_ncs0g")
+animation = &"hover_animation"
+
+[node name="Button" type="Button" parent="AnimatedSprite2D" unique_id=1134393222]
+self_modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.125
+anchor_right = 0.82900006
+anchor_bottom = 0.87500006
+offset_left = -15.984
+offset_top = -16.0
+offset_right = -16.528002
+offset_bottom = -16.000002
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="AnimatedSprite2D/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="AnimatedSprite2D/Button" to="." method="_on_button_button_up"]
