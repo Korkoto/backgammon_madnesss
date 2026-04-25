@@ -13,6 +13,7 @@ func throw_dice():
 	var dice_1_frame: int = randi_range(0, 5)
 	var dice_2_frame: int = randi_range(0, 5)
 	
+	
 	# Picks only 1 frame from Dice 1 and 2 AnimatedSprite2D, based on the random number from dice1 and dice2 variables
 	dice_1.set_frame(dice_1_frame)
 	dice_2.set_frame(dice_2_frame)

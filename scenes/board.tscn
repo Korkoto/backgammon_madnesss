@@ -1,17 +1,9 @@
 [gd_scene format=3 uid="uid://y83utq5sholm"]
 
 [ext_resource type="Texture2D" uid="uid://beqcd53ycctox" path="res://assets/backgammon_table.png" id="1_tx6nw"]
-[ext_resource type="PackedScene" uid="uid://c301ufjr6kv8f" path="res://scenes/pawn_white.tscn" id="2_nglv8"]
 
 [node name="Board" type="Node2D" unique_id=454198120]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=3770374]
-position = Vector2(287, 262)
+position = Vector2(287, 263)
 texture = ExtResource("1_tx6nw")
-
-[node name="Pawns" type="Node" parent="." unique_id=772061464]
-
-[node name="PawnWhite2" type="Node" parent="Pawns" unique_id=1629221250]
-
-[node name="PawnWhite" parent="Pawns/PawnWhite2" unique_id=1723992478 instance=ExtResource("2_nglv8")]
-position = Vector2(480, 447)

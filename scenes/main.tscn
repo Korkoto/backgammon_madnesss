@@ -3,10 +3,18 @@
 [ext_resource type="Script" uid="uid://wt2rmcse7u6t" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://y83utq5sholm" path="res://scenes/board.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://xq76gdvqx7ah" path="res://scenes/hud.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://c301ufjr6kv8f" path="res://scenes/pawn_white.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=686452789]
 script = ExtResource("1_o5qli")
 
 [node name="Board" parent="." unique_id=454198120 instance=ExtResource("2_sugp2")]
 
-[node name="Hud" parent="Board" unique_id=1180394394 instance=ExtResource("3_jyhfs")]
+[node name="Hud" parent="." unique_id=1180394394 instance=ExtResource("3_jyhfs")]
+
+[node name="Pawns" type="Node" parent="." unique_id=468789400]
+
+[node name="WhitePawns" type="Node" parent="Pawns" unique_id=304375994]
+
+[node name="PawnWhite1" parent="Pawns/WhitePawns" unique_id=1723992478 instance=ExtResource("4_jyhfs")]
+position = Vector2(-71, -24)
